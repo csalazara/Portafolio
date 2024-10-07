@@ -1,0 +1,30 @@
+/* Message Hello */
+.message {
+    width: auto !important;
+    font-size: 14px;
+    background: #760101;
+    color: #ffffff; 
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    pointer-events: auto; 
+    display: inline-block; 
+    position: relative; 
+}
+
+.message::before {
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #760101;
+    position: absolute; 
+    bottom: -4px; 
+    left: 25%; 
+    transform: translate(-50%) rotate(45deg); 
+}
+
+/* Title of my name */
+
+  
+  
+  

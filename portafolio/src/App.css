@@ -1,0 +1,44 @@
+.profileCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link {
+    position: relative; /* Posicionamiento relativo para el pseudo-elemento */
+    padding: 10px 15px; /* Espaciado interno */
+    color: #000; /* Color del texto (puedes cambiarlo) */
+    text-decoration: none; /* Eliminar subrayado por defecto */
+}
+
+.nav-link::after {
+    content: ''; /* Contenido vacío para el pseudo-elemento */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Ancho total para que la línea cubra el texto */
+    height: 2px; /* Altura de la línea */
+    background-color: #760101; /* Color de la línea */
+    transform: scaleX(0); /* Inicialmente la línea está oculta */
+    transform-origin: left; /* La línea crece desde la izquierda */
+    transition: transform 0.3s ease; /* Transición suave para el efecto */
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1); /* Crece la línea al pasar el cursor */
+}
+
+.nav-link:not(:hover)::after {
+    transform: scaleX(0); /* Se oculta la línea cuando el cursor sale */
+}
+
+
+
+
+
+
+
+
+
+
+
