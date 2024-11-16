@@ -24,7 +24,7 @@ function App() {
         </Container>
       </Navbar>
 
-      <Container>
+      <Container className='d-flex justify-content-center align-items-center'>
         <div className='profileCard'>
           <div>
             <ProfileCard />

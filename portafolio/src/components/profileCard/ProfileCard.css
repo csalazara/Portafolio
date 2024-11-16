@@ -23,7 +23,20 @@
     transform: translate(-50%) rotate(45deg); 
 }
 
-/* Title of my name */
+.social-media-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+}
+
+.container-social-icon{
+    width: auto !important;
+}
+
+.social-icon{
+    font-size: 3vh;
+}
 
   
   

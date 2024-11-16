@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 70%;
 }
 
 .nav-link {
@@ -30,6 +31,14 @@
 
 .nav-link:not(:hover)::after {
     transform: scaleX(0); /* Se oculta la línea cuando el cursor sale */
+}
+
+.background-primary{
+    background-color: #760101;
+}
+
+.text-white{
+    color:white;
 }
 
 
