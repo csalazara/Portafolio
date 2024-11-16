@@ -1,3 +1,7 @@
+.main-container{
+    max-width: 95%;
+}
+
 .profileCard{
     display: flex;
     align-items: center;
@@ -37,6 +41,14 @@
 
 .background-primary{
     background-color: #760101;
+}
+
+.color-primary {
+    color: #760101 !important;
+}
+
+.color-secondary {
+    color: #373b42 !important;
 }
 
 .text-white{

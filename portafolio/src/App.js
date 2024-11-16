@@ -1,13 +1,14 @@
 import React from 'react';
-import { Container, Navbar, Nav, Image, Button, Row, Col } from 'react-bootstrap';
+import { Container, Navbar, Nav} from 'react-bootstrap';
 import ProfileCard from './components/profileCard/ProfileCard';
+import Experience from './components/experience/Experience';
 import './App.css';
 
 function App() {
   return (
-    <div>
+    <Container fluid>
       <Navbar bg="white" variant="light" expand="lg">
-        <Container>
+        <Container fluid>
           <Navbar.Brand href="#home">
             <img src='Logo.png' alt="Logo" style={{height:'50px'}} />
           </Navbar.Brand>
@@ -36,7 +37,9 @@ function App() {
         </div>
       </Container>
 
-    </div>
+      <Experience></Experience>
+
+    </Container>
   );
 }
 

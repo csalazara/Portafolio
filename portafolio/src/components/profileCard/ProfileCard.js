@@ -21,12 +21,7 @@ function ProfileCard() {
             </h1>
           </Row>
           <Row>
-            <p style={{ textAlign: 'justify', fontSize: '18px' }}>Desarrollador full stack con una sólida trayectoria en la creación y 
-                mantenimiento de aplicaciones web y soluciones de software. Mi experiencia 
-                abarca desde el desarrollo de interfaces intuitivas hasta la implementación de 
-                complejas lógicas de negocio. Me especializo en optimizar sistemas y procesos 
-                para mejorar la eficiencia y la satisfacción del cliente, con un enfoque en la 
-                resolución de problemas y la implementación de mejoras continuas.</p>
+            <p style={{ textAlign: 'justify', fontSize: '18px' }}>Full stack developer with a strong background in creating and maintaining web applications and software solutions. My experience ranges from developing intuitive interfaces to implementing complex business logic. I specialize in optimizing systems and processes to improve efficiency and customer satisfaction, with a focus on problem-solving and continuous improvement.</p>
           </Row>
         </Col>
       </Row>
