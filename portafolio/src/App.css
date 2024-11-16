@@ -45,12 +45,23 @@ h1 {
     right: 0;
     height: 48vh;  /* La altura de la imagen será el 48% de la altura de la ventana */
     max-height: 500px;
-    background-image: url(https://images.pexels.com/photos/136320/pexels-photo-136320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);  /* Aquí va tu URL de la imagen */
+    background-image: url(../public/fondo.jpg);  /* Aquí va tu URL de la imagen */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;  /* Asegura que la imagen esté detrás del contenido */
   }
+
+  .img-nav-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* Oscurece la imagen, ajusta el valor de opacidad */
+    z-index: 0;
+}
 
 .nav-link {
     position: relative; /* Posicionamiento relativo para el pseudo-elemento */
