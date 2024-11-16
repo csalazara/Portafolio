@@ -7,7 +7,7 @@ function ProfileCard() {
 
   return (
     <Container className="my-5 shadow">
-      <Row>
+      <Row className='background-white'>
         <Col lg={5} md={5} xs={12} className="d-flex justify-content-center align-items-center">
           <img src='Logo.png' alt='Logo' style={{ width: '80%' }} />
         </Col>

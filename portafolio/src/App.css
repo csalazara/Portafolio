@@ -1,6 +1,34 @@
 .main-container{
-    max-width: 95%;
+    max-width: 100%;
 }
+
+.background-primary{
+    background-color: #760101;
+}
+
+.background-white{
+    background-color: white;
+}
+
+.color-primary {
+    color: #760101 !important;
+}
+
+.color-secondary {
+    color: #373b42 !important;
+}
+
+.text-white{
+    color:white;
+}
+
+h1 {
+    font-size: calc(1.5rem + 1vw); /* Ajuste dinámico */
+  }
+  p {
+    font-size: 1rem; /* Legible en pantallas pequeñas */
+    line-height: 1.5; /* Mejora la lectura */
+  }
 
 .profileCard{
     display: flex;
@@ -9,12 +37,27 @@
     width: 70%;
 }
 
+/*Nav*/
+.img-nav-container {
+    position: absolute;
+    top: 0%;  /* Altura del Navbar */
+    left: 0;
+    right: 0;
+    height: 48vh;  /* La altura de la imagen será el 48% de la altura de la ventana */
+    max-height: 500px;
+    background-image: url(https://images.pexels.com/photos/136320/pexels-photo-136320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);  /* Aquí va tu URL de la imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;  /* Asegura que la imagen esté detrás del contenido */
+  }
+
 .nav-link {
     position: relative; /* Posicionamiento relativo para el pseudo-elemento */
     padding: 10px 15px; /* Espaciado interno */
     color: #000; /* Color del texto (puedes cambiarlo) */
     text-decoration: none; /* Eliminar subrayado por defecto */
-    font-size: 0.9rem; /* Tamaño ajustado para dispositivos pequeños */
+    font-size: 1vm; /* Tamaño ajustado para dispositivos pequeños */
     padding: 8px 10px; /* Espaciado interno */
 }
 
@@ -38,30 +81,6 @@
 .nav-link:not(:hover)::after {
     transform: scaleX(0); /* Se oculta la línea cuando el cursor sale */
 }
-
-.background-primary{
-    background-color: #760101;
-}
-
-.color-primary {
-    color: #760101 !important;
-}
-
-.color-secondary {
-    color: #373b42 !important;
-}
-
-.text-white{
-    color:white;
-}
-
-h1 {
-    font-size: calc(1.5rem + 1vw); /* Ajuste dinámico */
-  }
-  p {
-    font-size: 1rem; /* Legible en pantallas pequeñas */
-    line-height: 1.5; /* Mejora la lectura */
-  }
 
 /*Button Resume*/
 .button-transform {
