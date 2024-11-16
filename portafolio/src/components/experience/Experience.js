@@ -39,7 +39,7 @@ function Experience() {
   return (
     <Container fluid className="my-5">
       <h2 className="text-center mb-4">Work Experience</h2>
-      <Row className="gy-4">
+      <Row className="gy-4 justify-content-center">
         {experiences.map((experience, index) => (
           <Col md={6} key={index}>
             <Card className="h-100 shadow border-0">
