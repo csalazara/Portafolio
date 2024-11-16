@@ -9,7 +9,7 @@ function ProfileCard() {
     <Container className="my-5 shadow">
       <Row>
         <Col lg={5} md={5} xs={12} className="d-flex justify-content-center align-items-center">
-          <img src='Logo.png' alt='Logo' style={{ width: '100%' }} />
+          <img src='Logo.png' alt='Logo' style={{ width: '80%' }} />
         </Col>
         <Col lg={7} md={7} xs={12} className="d-flex flex-column justify-content-top">
           <Row>

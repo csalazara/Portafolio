@@ -24,11 +24,15 @@ function App() {
         </Container>
       </Navbar>
 
-      <Container className='d-flex justify-content-center align-items-center'>
+      <Container fluid className='d-flex flex-column justify-content-center align-items-center'>
         <div className='profileCard'>
           <div>
             <ProfileCard />
           </div>
+        </div>
+
+        <div>
+          <button class="button-transform" style={{ textTransform: 'uppercase' }}>download resume</button>
         </div>
       </Container>
 

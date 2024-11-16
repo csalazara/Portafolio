@@ -10,6 +10,8 @@
     pointer-events: auto; 
     display: inline-block; 
     position: relative; 
+    top: 25%;
+    left: 2%;
 }
 
 .message::before {
@@ -36,7 +38,14 @@
 
 .social-icon{
     font-size: 3vh;
+    cursor: pointer;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+  }
+  
 
   
   
