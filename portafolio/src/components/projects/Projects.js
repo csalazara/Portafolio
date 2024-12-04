@@ -38,7 +38,7 @@ function Projects() {
 
       <Row className="gy-4 justify-content-center">
         {projects.map((project, index) => (
-          <Card className="mx-3 shadow" style={{ width: '30rem' }}>
+          <Card className="mx-3 shadow" key={index} style={{ width: '30rem' }}>
             <Card.Img variant="top" src={project.img} className="mt-1" />
             <Card.Body>
               <Card.Title>{project.title}</Card.Title>

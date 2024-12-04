@@ -12,6 +12,23 @@ function App() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false); // Estado para saber si el navbar está abierto
   const navbarRef = useRef(null); // Referencia al Navbar
 
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Verifica si hay una preferencia guardada en el localStorage
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
+
+  
+  useEffect(() => {
+    // Guarda la preferencia de tema en localStorage
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    // Cambia la clase del body para activar los estilos del modo oscuro o claro
+    document.body.className = isDarkMode ? 'dark-mode' : 'light-mode';
+  }, [isDarkMode]);
+
   // Detecta el evento de scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -50,18 +67,28 @@ function App() {
     setIsNavbarOpen(!isNavbarOpen);
   };
 
+   // Lógica para el color de fondo del navbar
+   const backgroundColor = isNavbarOpen || scrolled 
+   ? (isDarkMode ? '#121212' : 'white') // Fondo oscuro en modo oscuro y blanco en modo claro
+   : (isDarkMode ? 'transparent' : 'transparent'); // Fondo transparente en ambos modos si no está abierto o scrolleado
+
+   const colorTextOptionNav = scrolled 
+   ? (isDarkMode ? 'text-white nav-link' : 'text-dark nav-link') // Fondo oscuro en modo oscuro y blanco en modo claro
+   : (isDarkMode ? 'text-white nav-link' : 'text-white nav-link'); // Fondo transparente en ambos modos si no está abierto o scrolleado
+
   return (
     <Container fluid className='p-0'>
       <div>
         {/* Navbar */}
         <Navbar
           ref={navbarRef} // Referencia al Navbar
-          bg={isNavbarOpen ? 'white' : scrolled ? 'white' : 'transparent'} // Cambia el fondo cuando el navbar está abierto o hace scroll
+          //bg={backgroundColor} // Cambia el fondo cuando el navbar está abierto o hace scroll
           variant="light"
           expand="lg"
           fixed="top" // Asegura que el navbar se quede fijo en la parte superior
           style={{
-            transition: 'background-color 0.3s ease', // Transición para el cambio de color
+            transition: 'background-color 0.3s ease', 
+            backgroundColor: backgroundColor// Transición para el cambio de color
           }}
         >
           <Container fluid className='mx-3'>
@@ -74,11 +101,11 @@ function App() {
             />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
-                <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#about">About</Nav.Link>
-                <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#experience">Experience</Nav.Link>
-                <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#skills">Skills</Nav.Link>
-                <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#portfolio">Projects</Nav.Link>
-                <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#contact">Contact</Nav.Link>
+                <Nav.Link className={colorTextOptionNav} href="#about">About</Nav.Link>
+                <Nav.Link className={colorTextOptionNav} href="#experience">Experience</Nav.Link>
+                <Nav.Link className={colorTextOptionNav} href="#skills">Skills</Nav.Link>
+                <Nav.Link className={colorTextOptionNav} href="#portfolio">Projects</Nav.Link>
+                <Nav.Link className={colorTextOptionNav} href="#contact">Contact</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -103,13 +130,36 @@ function App() {
           </div>
 
           <div>
-            <button className="button-transform" style={{ textTransform: 'uppercase' }}>download resume</button>
+            <button className="button-transform text-color" style={{ textTransform: 'uppercase' }}>download resume</button>
           </div>
         </Container>
 
         <Experience></Experience>
         <TechCarousel></TechCarousel>
         <Projects></Projects>
+      </div>
+
+      {/* Boton modo oscuro */}
+      <div className="container-Dark-Mode">
+        <label className="toggle-Dark-Mode" htmlFor="switch-Dark-Mode">
+          <input 
+            id="switch-Dark-Mode" 
+            className="input-Dark-Mode" 
+            type="checkbox" 
+            checked={isDarkMode}
+            onChange={toggleDarkMode}
+          />
+          <div className="icon-Dark-Mode icon--moon">
+            <svg height="32" width="32" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path clipRule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" fillRule="evenodd"></path>
+            </svg>
+          </div>
+          <div className="icon-Dark-Mode icon--sun">
+            <svg height="32" width="32" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"></path>
+            </svg>
+          </div>
+        </label>
       </div>
 
     </Container>

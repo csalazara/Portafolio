@@ -46,7 +46,7 @@ function Experience() {
               <Card.Body>
                 <h5 className="color-primary">{experience.title}</h5>
                 <div className="d-flex align-items-center my-3">
-                  <div className="icon-container color-secondary">{experience.icon}</div>
+                  <div className="icon-container text-color-secondary">{experience.icon}</div>
                   <h6 className="ms-3 mb-0 fw-bold">{experience.yearRange}</h6>
                 </div>
                 <Card.Text>{experience.description}</Card.Text>

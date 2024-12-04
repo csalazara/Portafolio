@@ -17,7 +17,7 @@ function ProfileCard() {
           </Row>
           <Row>
             <h1>
-              <span style={{ fontWeight: 'normal', color: 'black' }}>I'm </span>Cristopher Salazar
+              <span style={{ fontWeight: 'normal' }}>I'm </span>Cristopher Salazar
             </h1>
           </Row>
           <Row>

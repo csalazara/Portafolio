@@ -1,13 +1,106 @@
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos adicionales para los iconos y el botón */
+.icon-Dark-Mode {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.icon--moon {
+  transform: scale(1);
+}
+
+.icon--sun {
+  transform: scale(0);
+}
+
+input[type="checkbox"]:checked + .icon-Dark-Mode.icon--moon {
+  transform: scale(0);
+}
+
+input[type="checkbox"]:checked + .icon-Dark-Mode.icon--sun {
+  transform: scale(1);
+}
+
+/* Modo Oscuro */
+body.dark-mode .card {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #444444;
+}
+
+body.dark-mode .card-header {
+  background-color: #444444;
+  color: #ffffff;
+}
+
+body.dark-mode .card-body {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark-mode .card-footer {
+  background-color: #444444;
+  color: #ffffff;
+}
+
+/* Modo Claro */
+body.light-mode .card {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ddd;
+}
+
+body.light-mode .card-header {
+  background-color: #f8f9fa;
+  color: #000000;
+}
+
+body.light-mode .card-body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light-mode .card-footer {
+  background-color: #f8f9fa;
+  color: #000000;
+}
+
+body.light-mode .background-white {
+  background-color: white; /* Fondo blanco en modo claro */
+}
+
+body.dark-mode .background-white {
+  background-color: #222222; /* Fondo oscuro en modo oscuro */
+}
+
+body.light-mode .text-color-secondary{
+  color: #373b42 !important;
+}
+
+body.dark-mode .text-color-secondary{
+  color: white !important;
+}
+
+/* ------------------- */
+
 .main-container{
     max-width: 100%;
 }
 
 .background-primary{
     background-color: #760101;
-}
-
-.background-white{
-    background-color: white;
 }
 
 .color-primary {
@@ -156,8 +249,56 @@ h1 {
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
   
+  /*Button Dark Mode*/
+
+.container-Dark-Mode {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999; /* Para asegurarse de que el botón quede por encima de otros elementos */
+}
+
+.toggle-Dark-Mode {
+  background-color: #fff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 50px 20px rgba(0, 0, 0, .1);
+  line-height: 1;
+}
+
+.input-Dark-Mode {
+  display: none;
+}
+
+.icon-Dark-Mode {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  transition: transform 500ms;
+}
+
+.icon--moon {
+  transition-delay: 200ms;
+}
+
+.icon--sun {
+  transform: scale(0);
+}
+
+#switch-Dark-Mode:checked + .icon--moon {
+  transform: rotate(360deg) scale(0);
+}
+
+#switch-Dark-Mode:checked ~ .icon--sun {
+  transition-delay: 200ms;
+  transform: scale(1) rotate(360deg);
+}
+
   
-  
+
 
 
 
