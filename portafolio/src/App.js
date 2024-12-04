@@ -75,9 +75,9 @@ function App() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
                 <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#about">About</Nav.Link>
-                <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#skills">Skills</Nav.Link>
-                <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#portfolio">Portfolio</Nav.Link>
                 <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#experience">Experience</Nav.Link>
+                <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#skills">Skills</Nav.Link>
+                <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#portfolio">Projects</Nav.Link>
                 <Nav.Link className={scrolled ? 'text-dark nav-link' : 'text-white nav-link'} href="#contact">Contact</Nav.Link>
               </Nav>
             </Navbar.Collapse>
