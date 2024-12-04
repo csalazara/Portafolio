@@ -1,0 +1,61 @@
+
+  
+  .slider {
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* Ajusta al 100% del contenedor */
+    max-width: 1200px; /* Ancho máximo opcional */
+  }
+  
+  .slider::before,
+  .slider::after {
+    content: "";
+    position: absolute;
+    height: 100px;
+    width: 50px; /* Reduce para pantallas pequeñas */
+    z-index: 2;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+  
+  .slider::before {
+    left: 0;
+    top: 0;
+  }
+  
+  .slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+  
+  .slide-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    width: calc(100% * 2); /* Duplicación dinámica para loop */
+  }
+  
+  .slide {
+    flex: 0 0 auto; /* Evita que las imágenes se encojan */
+    width: 10%; /* Ajuste dinámico basado en la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide img {
+    width: 60px; /* La imagen toma el ancho del contenedor */
+    height: auto; /* Mantiene la proporción */
+  }
+  
+  /* Animación */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  

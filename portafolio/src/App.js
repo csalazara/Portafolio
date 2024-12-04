@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import ProfileCard from './components/profileCard/ProfileCard';
 import Experience from './components/experience/Experience';
+import Projects from './components/projects/Projects';
+import TechCarousel from './components/techCarousel/TechCarousel'
 import './App.css';
 
 function App() {
@@ -101,11 +103,13 @@ function App() {
           </div>
 
           <div>
-            <button class="button-transform" style={{ textTransform: 'uppercase' }}>download resume</button>
+            <button className="button-transform" style={{ textTransform: 'uppercase' }}>download resume</button>
           </div>
         </Container>
 
         <Experience></Experience>
+        <TechCarousel></TechCarousel>
+        <Projects></Projects>
       </div>
 
     </Container>
