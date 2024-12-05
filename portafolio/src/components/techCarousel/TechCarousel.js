@@ -1,8 +1,11 @@
 import React from "react";
 import { Container } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import "./TechCarousel.css"; // Archivo CSS para estilos
 
 const TechCarousel = () => {
+    const { t } = useTranslation();
+
   const images = [
       "skills/angular.png",
       "skills/Bootstrap.png",
@@ -22,7 +25,7 @@ const TechCarousel = () => {
 
     return (
         <Container fluid className="my-5">
-            <h2 className="text-center mb-4">Skills</h2>
+            <h2 className="text-center mb-4">{t('skillsTitle')}</h2>
 
             <div className="slider">
                 <div className="slide-track">

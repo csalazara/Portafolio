@@ -360,10 +360,17 @@ select option:focus {
   transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.menu .link svg {
+body.light-mode .menu .link svg {
   width: 14px;
   height: 14px;
   fill: #000000;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+body.dark-mode .menu .link svg {
+  width: 14px;
+  height: 14px;
+  fill: white;
   transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
 }
 

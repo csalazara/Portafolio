@@ -20,11 +20,11 @@ function ProfileCard() {
           </Row>
           <Row>
             <h1>
-              <span style={{ fontWeight: 'normal' }}>I'm </span>Cristopher Salazar
+              <span style={{ fontWeight: 'normal' }}>{t('profileIm')} </span>Cristopher Salazar
             </h1>
           </Row>
           <Row>
-            <p style={{ textAlign: 'justify', fontSize: '18px' }}>Full stack developer with a strong background in creating and maintaining web applications and software solutions. My experience ranges from developing intuitive interfaces to implementing complex business logic. I specialize in optimizing systems and processes to improve efficiency and customer satisfaction, with a focus on problem-solving and continuous improvement.</p>
+            <p style={{ textAlign: 'justify', fontSize: '18px' }}>{t('profileDescription')}</p>
           </Row>
         </Col>
       </Row>

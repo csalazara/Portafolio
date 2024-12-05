@@ -2,43 +2,36 @@ import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import './Experience.css';
 import { TbWorld } from "react-icons/tb";
+import { useTranslation } from 'react-i18next';
 
 function Experience() {
 
+  const { t } = useTranslation();
+
     const experiences = [
         {
-          yearRange: 'February 2024 - Present',
+          yearRange: t('experienceDate1'),
           icon: <TbWorld  />,
-          title: 'Software Developer Analyst - Grupo Prides',
-          description: `Responsible for managing a series of integrated web projects, developing new
-            functionalities, and providing ongoing maintenance and support for these systems.
-            My role includes ensuring the optimal performance of each project, delivering
-            effective solutions, and guaranteeing a high-quality user experience.`,
+          title: t('experienceTitle1'),
+          description: t('experienceDescription1'),
         },
         {
-          yearRange: 'February 2023 - February 2024',
+          yearRange: t('experienceDate2'),
           icon: <TbWorld  />,
-          title: 'Junior Software Developer - Grupo Diverscan S.A.',
-          description: `As a junior software developer, I focus on developing websites for asset
-            management. I collaborate closely with cross-functional teams to design, build, and
-            maintain websites that enhance user experiences and streamline asset
-            management processes, all while adhering to quality standards and meeting our
-            clients' requirements.`,
+          title: t('experienceTitle2'),
+          description: t('experienceDescription2'),
         },
         {
-          yearRange: 'September 2022 - October 2022',
+          yearRange: t('experienceDate3'),
           icon: <TbWorld  />,
-          title: 'Full Stack Developer Freelance - Intel',
-          description: `As a developer, worked on implementing the front-end of an internal business
-            application used for CRUD operations on users and products using ReactJS,
-            including the integration with the existing .NET back-end logic that connected with
-            the persistence layer. This was done following the design of the team's tech lead.`,
+          title: t('experienceTitle3'),
+          description: t('experienceDescription3'),
         },
       ];
 
   return (
     <Container fluid className="my-5">
-      <h2 className="text-center mb-4">Work Experience</h2>
+      <h2 className="text-center mb-4">{t('experienceTittle')}</h2>
       <Row className="gy-4 justify-content-center">
         {experiences.map((experience, index) => (
           <Col md={6} key={index}>

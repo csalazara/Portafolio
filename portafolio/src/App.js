@@ -81,7 +81,7 @@ function App() {
 
   //Cambio de idioma
   const { t, i18n } = useTranslation();
-  const [activeLang, setActiveLang] = useState('es'); // Estado para el idioma actual
+  const [activeLang, setActiveLang] = useState('en'); // Estado para el idioma actual
 
   // Función para cambiar el idioma
   const changeLanguage = (lang) => {
@@ -114,15 +114,15 @@ function App() {
             />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
-                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#about">About</Nav.Link>
-                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#experience">Experience</Nav.Link>
-                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#skills">Skills</Nav.Link>
-                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#portfolio">Projects</Nav.Link>
-                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#contact">Contact</Nav.Link>
+                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#about">{t('navAbout')}</Nav.Link>
+                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#experience">{t('navExperience')}</Nav.Link>
+                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#skills">{t('navSkills')}</Nav.Link>
+                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#portfolio">{t('navProjects')}</Nav.Link>
+                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#contact">{t('navContact')}</Nav.Link>
                 <div className="menu">
                   <div className="item">
                     <a href='#' className="link">
-                      <span className={colorTextOptionNav}> Idioma </span>
+                      <span className={colorTextOptionNav}> {t('navLanguaje')} </span>
                       <svg viewBox="0 0 360 360" >
                         <g id="SVGRepo_iconCarrier">
                           <path
@@ -177,7 +177,7 @@ function App() {
           </div>
 
           <div>
-            <button className="button-transform text-color-black" style={{ textTransform: 'uppercase' }}>download resume</button>
+            <button className="button-transform text-color-black" style={{ textTransform: 'uppercase' }}>{t('btnDownloadResume')}</button>
           </div>
         </Container>
 
