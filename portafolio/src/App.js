@@ -4,6 +4,7 @@ import ProfileCard from './components/profileCard/ProfileCard';
 import Experience from './components/experience/Experience';
 import Projects from './components/projects/Projects';
 import TechCarousel from './components/techCarousel/TechCarousel'
+import ContactForm  from './components/contactForm/ContactForm'
 import './App.css';
 import { useTranslation } from 'react-i18next';
 import './i18n';
@@ -183,6 +184,7 @@ function App() {
         <Experience></Experience>
         <TechCarousel></TechCarousel>
         <Projects></Projects>
+        <ContactForm></ContactForm>
       </div>
 
       {/* Boton modo oscuro */}
