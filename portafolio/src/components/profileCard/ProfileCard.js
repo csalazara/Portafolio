@@ -1,9 +1,12 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaLinkedinIn, FaGithub,FaWhatsapp } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 import './ProfileCard.css';
 
 function ProfileCard() {
+
+  const { t } = useTranslation();
 
   return (
     <Container className="my-5 shadow">
@@ -13,7 +16,7 @@ function ProfileCard() {
         </Col>
         <Col lg={7} md={7} xs={12} className="d-flex flex-column justify-content-top">
           <Row>
-            <span className='message mb-2'>Hello</span>
+            <span className='message mb-2'>{t('profileHello')}</span>
           </Row>
           <Row>
             <h1>

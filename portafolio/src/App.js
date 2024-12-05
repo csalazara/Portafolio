@@ -5,6 +5,8 @@ import Experience from './components/experience/Experience';
 import Projects from './components/projects/Projects';
 import TechCarousel from './components/techCarousel/TechCarousel'
 import './App.css';
+import { useTranslation } from 'react-i18next';
+import './i18n';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,7 +23,7 @@ function App() {
     setIsDarkMode((prevMode) => !prevMode);
   };
 
-  
+
   useEffect(() => {
     // Guarda la preferencia de tema en localStorage
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
@@ -67,14 +69,24 @@ function App() {
     setIsNavbarOpen(!isNavbarOpen);
   };
 
-   // Lógica para el color de fondo del navbar
-   const backgroundColor = isNavbarOpen || scrolled 
-   ? (isDarkMode ? '#121212' : 'white') // Fondo oscuro en modo oscuro y blanco en modo claro
-   : (isDarkMode ? 'transparent' : 'transparent'); // Fondo transparente en ambos modos si no está abierto o scrolleado
+  // Lógica para el color de fondo del navbar
+  const backgroundColor = isNavbarOpen || scrolled
+    ? (isDarkMode ? '#121212' : 'white') // Fondo oscuro en modo oscuro y blanco en modo claro
+    : (isDarkMode ? 'transparent' : 'transparent'); // Fondo transparente en ambos modos si no está abierto o scrolleado
 
-   const colorTextOptionNav = scrolled 
-   ? (isDarkMode ? 'text-white nav-link' : 'text-dark nav-link') // Fondo oscuro en modo oscuro y blanco en modo claro
-   : (isDarkMode ? 'text-white nav-link' : 'text-white nav-link'); // Fondo transparente en ambos modos si no está abierto o scrolleado
+  const colorTextOptionNav = scrolled
+    ? (isDarkMode ? 'text-white' : 'text-dark') // Fondo oscuro en modo oscuro y blanco en modo claro
+    : (isDarkMode ? 'text-white' : 'text-white'); // Fondo transparente en ambos modos si no está abierto o scrolleado
+
+  //Cambio de idioma
+  const { t, i18n } = useTranslation();
+  const [activeLang, setActiveLang] = useState('es'); // Estado para el idioma actual
+
+  // Función para cambiar el idioma
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+    setActiveLang(lang);
+  };
 
   return (
     <Container fluid className='p-0'>
@@ -87,7 +99,7 @@ function App() {
           expand="lg"
           fixed="top" // Asegura que el navbar se quede fijo en la parte superior
           style={{
-            transition: 'background-color 0.3s ease', 
+            transition: 'background-color 0.3s ease',
             backgroundColor: backgroundColor// Transición para el cambio de color
           }}
         >
@@ -101,11 +113,45 @@ function App() {
             />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
-                <Nav.Link className={colorTextOptionNav} href="#about">About</Nav.Link>
-                <Nav.Link className={colorTextOptionNav} href="#experience">Experience</Nav.Link>
-                <Nav.Link className={colorTextOptionNav} href="#skills">Skills</Nav.Link>
-                <Nav.Link className={colorTextOptionNav} href="#portfolio">Projects</Nav.Link>
-                <Nav.Link className={colorTextOptionNav} href="#contact">Contact</Nav.Link>
+                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#about">About</Nav.Link>
+                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#experience">Experience</Nav.Link>
+                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#skills">Skills</Nav.Link>
+                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#portfolio">Projects</Nav.Link>
+                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#contact">Contact</Nav.Link>
+                <div className="menu">
+                  <div className="item">
+                    <a href='#' className="link">
+                      <span className={colorTextOptionNav}> Idioma </span>
+                      <svg viewBox="0 0 360 360" >
+                        <g id="SVGRepo_iconCarrier">
+                          <path
+                            id="XMLID_225_"
+                            d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"
+                          ></path>
+                        </g>
+                      </svg>
+                    </a>
+                    <div className="submenu">
+                      <div className="submenu-item">
+                        <a
+                          href='#'
+                          className="submenu-link"
+                          onClick={() => changeLanguage('es')}
+                        > Español
+                        </a>
+                      </div>
+                      <div className="submenu-item">
+                        <a
+                          href='#'
+                          className="submenu-link"
+                          onClick={() => changeLanguage('en')}
+                        >
+                          English
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -142,10 +188,10 @@ function App() {
       {/* Boton modo oscuro */}
       <div className="container-Dark-Mode">
         <label className="toggle-Dark-Mode" htmlFor="switch-Dark-Mode">
-          <input 
-            id="switch-Dark-Mode" 
-            className="input-Dark-Mode" 
-            type="checkbox" 
+          <input
+            id="switch-Dark-Mode"
+            className="input-Dark-Mode"
+            type="checkbox"
             checked={isDarkMode}
             onChange={toggleDarkMode}
           />
@@ -161,6 +207,8 @@ function App() {
           </div>
         </label>
       </div>
+
+
 
     </Container>
   );
