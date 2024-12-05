@@ -46,7 +46,7 @@ function Projects() {
                 {project.description}
               </Card.Text>
               <div className="d-flex justify-content-end">
-                <button className="button-transform">
+                <button className="button-transform text-color-black">
                   <FaGithub className="social-icon" />
                 </button>
               </div>

@@ -130,7 +130,7 @@ function App() {
           </div>
 
           <div>
-            <button className="button-transform text-color" style={{ textTransform: 'uppercase' }}>download resume</button>
+            <button className="button-transform text-color-black" style={{ textTransform: 'uppercase' }}>download resume</button>
           </div>
         </Container>
 

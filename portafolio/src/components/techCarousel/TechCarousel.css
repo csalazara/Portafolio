@@ -16,9 +16,21 @@
     height: 100px;
     width: 50px; /* Reduce para pantallas pequeñas */
     z-index: 2;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    transition: background 0.3s ease; /* Transición suave al cambiar de tema */
   }
   
+/* Modo claro (por defecto) */
+body.light-mode .slider::before,
+body.light-mode .slider::after {
+  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Modo oscuro */
+body.dark-mode .slider::before,
+body.dark-mode .slider::after {
+  background: linear-gradient(to right, rgba(18, 18, 18, 1) 0%, rgba(18, 18, 18, 0) 100%);
+}
+
   .slider::before {
     left: 0;
     top: 0;

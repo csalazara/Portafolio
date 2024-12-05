@@ -93,6 +93,14 @@ body.dark-mode .text-color-secondary{
   color: white !important;
 }
 
+body.light-mode .text-color-black{
+  color: black ;
+}
+
+body.dark-mode .text-color-black{
+  color: white ;
+}
+
 /* ------------------- */
 
 .main-container{
@@ -198,7 +206,7 @@ h1 {
     overflow: hidden;
     font-size: 19px;
     cursor: pointer;
-    color: black;
+
     z-index: 1;
   }
   
@@ -210,7 +218,7 @@ h1 {
     top: 100%;
     width: 140%;
     height: 180%;
-    background-color: rgba(0, 0, 0, 0.05);
+
     border-radius: 50%;
     display: block;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
@@ -233,7 +241,7 @@ h1 {
   }
   
   .button-transform:hover {
-    color: #ffffff;
+    color: #ffffff !important;
     border: 1px solid #760101;
   }
   
@@ -259,7 +267,6 @@ h1 {
 }
 
 .toggle-Dark-Mode {
-  background-color: #fff;
   width: 56px;
   height: 56px;
   border-radius: 50%;
