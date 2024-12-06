@@ -26,7 +26,7 @@ const TechCarousel = () => {
     return (
         <Container fluid className="my-5">
             <h2 className="text-center mb-4">{t('skillsTitle')}</h2>
-
+            <h6 className="text-center mb-4">{t('skillsDescription')}</h6>
             <div className="slider">
                 <div className="slide-track">
                     {images.concat(images).map((src, index) => (

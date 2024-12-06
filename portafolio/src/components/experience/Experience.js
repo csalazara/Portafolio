@@ -32,6 +32,7 @@ function Experience() {
   return (
     <Container fluid className="my-5">
       <h2 className="text-center mb-4">{t('experienceTittle')}</h2>
+      <h6 className="text-center mb-4">{t('experienceDescription')}</h6>
       <Row className="gy-4 justify-content-center">
         {experiences.map((experience, index) => (
           <Col md={6} key={index}>

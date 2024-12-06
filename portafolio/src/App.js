@@ -106,10 +106,21 @@ function App() {
     link.click();
   };
   
+  //scroll
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const offsetTop = section.offsetTop - 100; // Ajustar 50px hacia arriba
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <Container fluid className='p-0'>
-      <div>
+      <div id='about'>
         {/* Navbar */}
         <Navbar
           ref={navbarRef} // Referencia al Navbar
@@ -124,7 +135,11 @@ function App() {
         >
           <Container fluid className='mx-3'>
             <Navbar.Brand href="#home">
-              <img src="Logo.png" alt="Logo" style={{ height: '50px' }} />
+              <img
+                src={isDarkMode && scrolled? 'logo-light.png' : 'Logo.png'}
+                alt="Logo"
+                style={{ height: '50px' }}
+              />
             </Navbar.Brand>
             <Navbar.Toggle
               aria-controls="basic-navbar-nav"
@@ -132,11 +147,11 @@ function App() {
             />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
-                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#about">{t('navAbout')}</Nav.Link>
-                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#experience">{t('navExperience')}</Nav.Link>
-                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#skills">{t('navSkills')}</Nav.Link>
-                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#portfolio">{t('navProjects')}</Nav.Link>
-                <Nav.Link className={`${colorTextOptionNav} nav-link`} href="#contact">{t('navContact')}</Nav.Link>
+                <Nav.Link onClick={() => scrollToSection('about')} className={`${colorTextOptionNav} nav-link`} >{t('navAbout')}</Nav.Link>
+                <Nav.Link onClick={() => scrollToSection('experience')} className={`${colorTextOptionNav} nav-link`} >{t('navExperience')}</Nav.Link>
+                <Nav.Link onClick={() => scrollToSection('skills')} className={`${colorTextOptionNav} nav-link`} >{t('navSkills')}</Nav.Link>
+                <Nav.Link onClick={() => scrollToSection('projects')} className={`${colorTextOptionNav} nav-link`} >{t('navProjects')}</Nav.Link>
+                <Nav.Link onClick={() => scrollToSection('contact')} className={`${colorTextOptionNav} nav-link`} >{t('navContact')}</Nav.Link>
                 <div className="menu">
                   <div className="item">
                     <a href='#' className="link">
@@ -153,7 +168,7 @@ function App() {
                     <div className="submenu">
                       <div className="submenu-item">
                         <a
-                          href='#'
+                          
                           className="submenu-link"
                           onClick={() => changeLanguage('es')}
                         > Español
@@ -161,7 +176,7 @@ function App() {
                       </div>
                       <div className="submenu-item">
                         <a
-                          href='#'
+                          
                           className="submenu-link"
                           onClick={() => changeLanguage('en')}
                         >
@@ -190,7 +205,7 @@ function App() {
         >
           <div className='profileCard'>
             <div>
-              <ProfileCard />
+              <ProfileCard darkMode={isDarkMode}/>
             </div>
           </div>
 
@@ -198,11 +213,14 @@ function App() {
             <button className="button-transform text-color-black" onClick={handleDownload} style={{ textTransform: 'uppercase' }}>{t('btnDownloadResume')}</button>
           </div>
         </Container>
-
-        <Experience></Experience>
-        <TechCarousel></TechCarousel>
-        <Projects></Projects>
-        <ContactForm></ContactForm>
+          <div id='experience'><Experience></Experience></div>
+        
+        <div id='skills'><TechCarousel></TechCarousel></div>
+        
+        <div id='projects'><Projects></Projects></div>
+        
+        <div id='contact'><ContactForm></ContactForm></div>
+        
       </div>
 
       {/* Boton modo oscuro */}

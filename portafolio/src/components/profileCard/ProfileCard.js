@@ -4,7 +4,7 @@ import { FaLinkedinIn, FaGithub,FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
 import './ProfileCard.css';
 
-function ProfileCard() {
+function ProfileCard({ darkMode }) {
 
   const { t } = useTranslation();
 
@@ -12,7 +12,11 @@ function ProfileCard() {
     <Container className="my-5 shadow">
       <Row className='background-white'>
         <Col lg={5} md={5} xs={12} className="d-flex justify-content-center align-items-center">
-          <img src='Logo.png' alt='Logo' style={{ width: '80%' }} />
+          <img
+            src={darkMode ? 'logo-light.png' : 'Logo.png'}
+            alt="Logo"
+            style={{ width: '80%' }}
+          />
         </Col>
         <Col lg={7} md={7} xs={12} className="d-flex flex-column justify-content-top">
           <Row>

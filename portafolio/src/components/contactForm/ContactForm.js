@@ -77,6 +77,7 @@ const ContactForm = () => {
     return (
         <div className="contact-form-container my-5">
             <h2 className="text-center mb-4">{t('contactTittle')}</h2>
+            <h6 className="text-center mb-4">{t('contactDescription')}</h6>
             <Row className="contact-form d-flex justify-content-center">
                 <Col md={3} className="contact-form-left shadow mx-3">
                     <h2>{t('contactSubTittle')}</h2>
