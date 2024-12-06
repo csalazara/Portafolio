@@ -54,7 +54,17 @@ const resources = {
       contactName: "Nombre",
       contactEmail: "Correo electrónico",
       contactMessage: "Mensaje",
-      btnEnviar: "Enviar"
+      btnEnviar: "Enviar",
+
+      successTitle: "¡Enviado!",
+      successMessage: "Tu mensaje ha sido enviado correctamente.",
+      errorTitle: "Error",
+      errorMessageSend: "Hubo un problema al enviar tu mensaje. Inténtalo nuevamente.",
+      errorName: "El nombre es obligatorio.",
+      errorEmailRequired: "El correo electrónico es obligatorio.",
+      errorEmailInvalid: "El formato del correo no es válido.",
+      errorMessage: "El mensaje es obligatorio.",
+      btnOk:"Aceptar"
     }
   }
   ,
@@ -110,8 +120,17 @@ const resources = {
       contactName:'Name',
       contactEmail:'Email',
       contactMessage:'Message',
-      btnEnviar:'Send',
-      
+      btnEnviar: 'Send',
+
+      successTitle: "Sent!",
+      successMessage: "Your message has been sent successfully.",
+      errorTitle: "Error",
+      errorMessageSend: "There was a problem sending your message. Please try again.",
+      errorName: "Name is required.",
+      errorEmailRequired: "Email is required.",
+      errorEmailInvalid: "The email format is invalid.",
+      errorMessage: "Message is required.",
+      btnOk: "Ok"
 
     },
   },

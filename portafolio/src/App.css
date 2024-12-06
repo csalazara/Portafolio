@@ -137,6 +137,10 @@ h1 {
     width: 70%;
 }
 
+.btnSeetAlert{
+  color: black;
+}
+
 /*Nav*/
 .img-nav-container {
     position: absolute;

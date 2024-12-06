@@ -3,6 +3,7 @@ import { Form, Col, Row } from 'react-bootstrap';
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
 import emailjs from 'emailjs-com';
+import Swal from 'sweetalert2';
 import './ContactForm.css';
 import '../profileCard/ProfileCard.css';
 
@@ -13,35 +14,64 @@ const ContactForm = () => {
         email: '',
         message: ''
     });
-    const [successMessage, setSuccessMessage] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
+    const [formErrors, setFormErrors] = useState({});
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
+    const validateForm = () => {
+        const errors = {};
+        if (!formData.name.trim()) errors.name = t('errorName');
+        if (!formData.email.trim()) {
+            errors.email = t('errorEmailRequired');
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            errors.email = t('errorEmailInvalid');
+        }
+        if (!formData.message.trim()) errors.message = t('errorMessage');
+        return errors;
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        const errors = validateForm();
+        setFormErrors(errors);
 
-        emailjs
-            .send(
-                'service_a953jxr', // Reemplaza con tu Service ID de EmailJS
-                'template_u0811cn', // Reemplaza con tu Template ID de EmailJS
-                formData,
-                'fC2x6WfIM7fzzrsJD' // Reemplaza con tu Public Key de EmailJS
-            )
-            .then(
-                () => {
-                    setSuccessMessage(t('messageSuccess'));
-                    setErrorMessage('');
-                    setFormData({ name: '', email: '', message: '' });
-                },
-                () => {
-                    setErrorMessage(t('messageError'));
-                    setSuccessMessage('');
-                }
-            );
+        if (Object.keys(errors).length === 0) {
+            emailjs
+                .send(
+                    'service_a953jxr', // Reemplaza con tu Service ID de EmailJS
+                    'template_u0811cn', // Reemplaza con tu Template ID de EmailJS
+                    formData,
+                    'fC2x6WfIM7fzzrsJD' // Reemplaza con tu Public Key de EmailJS
+                )
+                .then(
+                    () => {
+                        Swal.fire({
+                            title: t('successTitle'),
+                            text: t('successMessage'),
+                            icon: 'success',
+                            customClass: {
+                                confirmButton: "button-transform btnSeetAlert",
+                            },
+                            confirmButtonText: t('btnOk')
+                        });
+                        setFormData({ name: '', email: '', message: '' });
+                    },
+                    () => {
+                        Swal.fire({
+                            title: t('errorTitle'),
+                            text: t('errorMessageSend'),
+                            icon: 'error',
+                            customClass: {
+                                confirmButton: "button-transform btnSeetAlert",
+                            },
+                            confirmButtonText: t('btnOk')
+                        });
+                    }
+                );
+        }
     };
 
     return (
@@ -50,7 +80,7 @@ const ContactForm = () => {
             <Row className="contact-form d-flex justify-content-center">
                 <Col md={3} className="contact-form-left shadow mx-3">
                     <h2>{t('contactSubTittle')}</h2>
-                    <Form onSubmit={handleSubmit}>
+                    <Form noValidate onSubmit={handleSubmit}>
                         <Form.Group controlId="formName" className="contact-form-input">
                             <Form.Label>{t('contactName')}</Form.Label>
                             <Form.Control
@@ -58,8 +88,11 @@ const ContactForm = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                required
+                                isInvalid={!!formErrors.name}
                             />
+                            <Form.Control.Feedback type="invalid">
+                                {formErrors.name}
+                            </Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group controlId="formEmail" className="contact-form-input">
@@ -69,8 +102,11 @@ const ContactForm = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                required
+                                isInvalid={!!formErrors.email}
                             />
+                            <Form.Control.Feedback type="invalid">
+                                {formErrors.email}
+                            </Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group controlId="formMessage" className="contact-form-input">
@@ -81,8 +117,11 @@ const ContactForm = () => {
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                required
+                                isInvalid={!!formErrors.message}
                             />
+                            <Form.Control.Feedback type="invalid">
+                                {formErrors.message}
+                            </Form.Control.Feedback>
                         </Form.Group>
 
                         <button
@@ -93,8 +132,6 @@ const ContactForm = () => {
                             {t('btnEnviar')}
                         </button>
                     </Form>
-                    {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                 </Col>
             </Row>
             <Row className="social-media-footer">
