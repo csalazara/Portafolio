@@ -31,7 +31,7 @@ const TechCarousel = () => {
                 <div className="slide-track">
                     {images.concat(images).map((src, index) => (
                         <div className="slide" key={index}>
-                            <img src={src} alt={`Logo ${index + 1}`} />
+                            <img src={`${process.env.PUBLIC_URL}/${src}`} alt={`Logo ${index + 1}`} />                          
                         </div>
                     ))}
                 </div>

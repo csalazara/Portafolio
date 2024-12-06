@@ -136,7 +136,7 @@ function App() {
           <Container fluid className='mx-3'>
             <Navbar.Brand href="#home">
               <img
-                src={isDarkMode && scrolled? 'logo-light.png' : 'Logo.png'}
+                src={isDarkMode && scrolled? `${process.env.PUBLIC_URL}/logo-light.png` : `${process.env.PUBLIC_URL}/Logo.png`}
                 alt="Logo"
                 style={{ height: '50px' }}
               />

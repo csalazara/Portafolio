@@ -13,7 +13,7 @@ function ProfileCard({ darkMode }) {
       <Row className='background-white'>
         <Col lg={5} md={5} xs={12} className="d-flex justify-content-center align-items-center">
           <img
-            src={darkMode ? 'logo-light.png' : 'Logo.png'}
+            src={darkMode ? `${process.env.PUBLIC_URL}/logo-light.png` : `${process.env.PUBLIC_URL}/Logo.png`}
             alt="Logo"
             style={{ width: '80%' }}
           />
