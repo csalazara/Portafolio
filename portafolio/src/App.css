@@ -455,6 +455,7 @@ body.dark-mode .menu .link svg {
   display: block;
   padding: 12px 24px;
   width: 100%;
+  cursor: pointer;
   position: relative;
   text-align: center;
   background-color: #ffffff; /* Fondo blanco por defecto */
