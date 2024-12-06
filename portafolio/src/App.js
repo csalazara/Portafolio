@@ -5,6 +5,7 @@ import Experience from './components/experience/Experience';
 import Projects from './components/projects/Projects';
 import TechCarousel from './components/techCarousel/TechCarousel'
 import ContactForm  from './components/contactForm/ContactForm'
+import { FaArrowUp } from 'react-icons/fa';
 import './App.css';
 import { useTranslation } from 'react-i18next';
 import './i18n';
@@ -118,6 +119,11 @@ function App() {
     }
   };
 
+  //Scroll top
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <Container fluid className='p-0'>
       <div id='about'>
@@ -222,6 +228,15 @@ function App() {
         <div id='contact'><ContactForm></ContactForm></div>
         
       </div>
+
+      {/* Botón de Scroll Top */}
+      {scrolled && (
+        <div className="container-ScrollTop">
+          <button className="scrollTopBtn text-color-black" onClick={handleScrollTop}>
+            <FaArrowUp size={30} />
+          </button>
+        </div>
+      )}
 
       {/* Boton modo oscuro */}
       <div className="container-Dark-Mode">

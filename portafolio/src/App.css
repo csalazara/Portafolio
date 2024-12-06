@@ -319,7 +319,27 @@ select option:focus {
   transform: scale(1) rotate(360deg);
 }
 
-  
+/*Boton scroll top*/
+.container-ScrollTop {
+  position: fixed;
+  bottom: 80px; /* Establece un espacio para que el botón quede sobre el de modo oscuro */
+  right: 20px;
+  z-index: 10000; /* Más alto que el del Dark Mode */
+}
+
+.scrollTopBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  box-shadow: 0 0 50px 20px rgba(0, 0, 0, .1);
+  transition: background-color 300ms ease;
+}
+
 /* Select idioma */ 
 .menu {
   font-size: 16px;
