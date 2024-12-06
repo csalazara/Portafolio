@@ -89,6 +89,24 @@ function App() {
     setActiveLang(lang);
   };
 
+  //Descarga pdf
+  const handleDownload = () => {
+    const pdfFiles = {
+      en: 'resume/CV-CristopherSalazarArguedas-EN.pdf', // Ruta del archivo PDF en inglés
+      es: 'resume/CV-CristopherSalazarArguedas-ES.pdf', // Ruta del archivo PDF en español
+    };
+  
+    // Determina el archivo según el idioma activo
+    const selectedPdf = pdfFiles[activeLang] || pdfFiles['en']; // Predeterminado al inglés si el idioma no está en el mapa
+  
+    // Crea un enlace temporal para descargar el archivo
+    const link = document.createElement('a');
+    link.href = selectedPdf;
+    link.download = selectedPdf.split('/').pop(); // Extrae el nombre del archivo del path
+    link.click();
+  };
+  
+
   return (
     <Container fluid className='p-0'>
       <div>
@@ -177,7 +195,7 @@ function App() {
           </div>
 
           <div>
-            <button className="button-transform text-color-black" style={{ textTransform: 'uppercase' }}>{t('btnDownloadResume')}</button>
+            <button className="button-transform text-color-black" onClick={handleDownload} style={{ textTransform: 'uppercase' }}>{t('btnDownloadResume')}</button>
           </div>
         </Container>
 
