@@ -29,15 +29,15 @@ function ProfileCard() {
         </Col>
       </Row>
       <Row className='background-primary social-media-footer'>
-        <div className='container-social-icon'>
+        <a href='https://www.linkedin.com/in/cristophersalazar/' target="_blank" className='container-social-icon'>
           <FaLinkedinIn className='text-white social-icon' />
-        </div>
-        <div className='container-social-icon'>
+        </a>
+        <a href='https://github.com/cristopher9730' target="_blank" className='container-social-icon'>
           <FaGithub className='text-white social-icon' />
-        </div>
-        <div className='container-social-icon'>
+        </a>
+        <a href='https://wa.me/+50687031517' target="_blank" className='container-social-icon'>
           <FaWhatsapp className='text-white social-icon' />
-        </div>
+        </a>
       </Row>
     </Container>
   );
