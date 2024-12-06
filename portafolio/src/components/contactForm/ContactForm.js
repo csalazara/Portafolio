@@ -79,7 +79,7 @@ const ContactForm = () => {
             <h2 className="text-center mb-4">{t('contactTittle')}</h2>
             <h6 className="text-center mb-4">{t('contactDescription')}</h6>
             <Row className="contact-form d-flex justify-content-center">
-                <Col md={3} className="contact-form-left shadow mx-3">
+                <Col xs={12} sm={7} md={5} style={{maxWidth:'650px'}} className="contact-form-left shadow mx-3">
                     <h2>{t('contactSubTittle')}</h2>
                     <Form noValidate onSubmit={handleSubmit}>
                         <Form.Group controlId="formName" className="contact-form-input">
@@ -136,7 +136,7 @@ const ContactForm = () => {
                 </Col>
             </Row>
             <Row className="social-media-footer">
-                <Col md={3} className="background-primary shadow mx-3">
+                <Col xs={12} sm={7} md={5} style={{maxWidth:'650px'}} className="background-primary shadow mx-3">
                     <Row className="background-primary social-media-footer">
                         <a href='https://www.linkedin.com/in/cristophersalazar/' target="_blank" className='container-social-icon'>
                             <FaLinkedinIn className='text-white social-icon' />
